@@ -7,16 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverFactory {
-	private static WebDriver driver = null;
+	private static WebDriver driver;
 	private static Logger log = Logger.getLogger("DriverFactory");
 
 	public static WebDriver driverInit() {
 		if (driver == null) {
 			driver = new ChromeDriver();
-			log.info("Driver criado");
-
-			driver.get(Constant.url);
-			log.info("Navegador inicializado com o site https://www.advantageonlineshopping.com/#/");
+			log.info("Driver inicializado");
 
 			driver.manage().window().maximize();
 			log.info("Navegador maximizado");

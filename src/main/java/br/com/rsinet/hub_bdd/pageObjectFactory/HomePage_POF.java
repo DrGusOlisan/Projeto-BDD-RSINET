@@ -4,9 +4,9 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,6 +19,7 @@ public class HomePage_POF {
 
 	public HomePage_POF(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(how = How.ID, using = "menuUserLink")
@@ -65,12 +66,16 @@ public class HomePage_POF {
 
 	@FindBy(how = How.NAME, using = "popular_item_21_name")
 	private WebElement nomeDoTerceiroProduto;
+	
+	public void navegarParaPaginaPrincipal() {
+		driver.get(Constant.url);
+	}
 
 	public void clicaEmBotaoConta() {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(botaoConta)).click();
 	}
-	
+
 	public void clicaProdutosPopulares() {
 		botaoPopularItems.click();
 	}
@@ -125,7 +130,9 @@ public class HomePage_POF {
 
 		wait.until(ExpectedConditions.elementToBeClickable(campoPesquisa)).sendKeys(produto);
 		log.info("Nome do produto inserido: " + produto);
+	}
 
+	public void executaPesquisa() {
 		campoPesquisa.sendKeys(Keys.ENTER);
 		log.info("Produto pesquisado");
 	}
@@ -142,7 +149,8 @@ public class HomePage_POF {
 	public String nomeUsuarioLogado() {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		try {
-			wait.until(ExpectedConditions.textToBePresentInElement(nomeUsuarioLogado, Constant.usuario()));
+			wait.until(ExpectedConditions.attributeToBe(nomeUsuarioLogado, "class",
+					"hi-user containMiniTitle ng-binding"));
 			return nomeUsuarioLogado.getText();
 		} catch (Exception e) {
 			return nomeUsuarioLogado.getText();

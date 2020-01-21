@@ -2,8 +2,9 @@ package br.com.rsinet.hub_bdd.utility;
 
 public class Constant {
 	public static final String url = "https://www.advantageonlineshopping.com/#/";
-	public static final String Path_DadosParaTeste = "C:\\Users\\g.santos\\Documents\\Massa de dados\\DadosParaTeste.xlsx";
-
+	public static final String Path_DadosParaTeste = "C:\\My Workspace\\BDD\\src\\main\\java\\br\\com\\rsinet\\hub_bdd\\dataProvider\\DadosParaTeste.xlsx";
+	public static final String sheet_DadosParaTeste = "CenariosDeTeste";
+	
 	public static final String usuario() throws Exception {
 		return ExcelUtils.getCellData(1, 2);
 	}
