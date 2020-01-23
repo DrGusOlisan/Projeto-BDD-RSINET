@@ -3,14 +3,18 @@
 Funcionalidade: Acao de Cadastro de usuario
   Cadastra usuario no sistema.
 
-  Cenario: Cadastrar novo usuario com sucesso
+  Contexto: 
     Dado Usuario esta na pagina principal
-    Quando Usuario navega para a pagina de cadastro
-    E Usuario preenche o formulario de cadastro
+    Quando Usuario clica no botao de login
+    E clica no botao de criar nova conta
+    E preenche o formulario de cadastro
+    E clica no botao de concordar com os termos
+    E submete para cadastrar
+
+  @CenarioPositivo
+  Cenario: Cadastrar novo usuario com sucesso
     Entao Usuario conclui o cadastro logado no sistema
 
+  @CenarioNegativo
   Cenario: Cadastrar usuario existente
-    Dado Usuario esta na pagina principal
-    Quando Usuario navega para a pagina de cadastro
-    E Usuario preenche o formulario de cadastro
     Entao Mostra mensagem usuario ja existente

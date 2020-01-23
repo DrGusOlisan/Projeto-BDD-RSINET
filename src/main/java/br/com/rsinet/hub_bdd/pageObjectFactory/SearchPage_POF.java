@@ -26,7 +26,7 @@ public class SearchPage_POF {
 	@FindBy(how = How.ID, using = "searchResultLabel")
 	private WebElement resultadoDaPesquisa;
 
-	public boolean validaPresencaDoProdutoInexistente() {
+	public boolean validaPresencaDoProdutoInexistente() throws Exception {
 		return resultadoDaPesquisa.isDisplayed();
 	}
 

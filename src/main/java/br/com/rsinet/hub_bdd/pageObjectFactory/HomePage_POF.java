@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -23,7 +24,10 @@ public class HomePage_POF {
 	}
 
 	@FindBy(how = How.ID, using = "menuUserLink")
-	private WebElement botaoConta;
+	private WebElement botaoLogin;
+
+	@FindBy(how = How.XPATH, using = "/html/body/login-modal/div/div/div[3]/a[2]")
+	private WebElement botaoCriarConta;
 
 	@FindBy(how = How.ID, using = "menuSearch")
 	private WebElement botaoPesquisa;
@@ -71,9 +75,14 @@ public class HomePage_POF {
 		driver.get(LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getUrl());
 	}
 
-	public void clicaEmBotaoConta() {
+	public void clicaEmBotaoLogin() {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(botaoConta)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoLogin)).click();
+	}
+
+	public void clicaEmBotaoCriarConta() {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(botaoCriarConta)).sendKeys(Keys.ENTER);
 	}
 
 	public void clicaProdutosPopulares() {
@@ -144,5 +153,10 @@ public class HomePage_POF {
 		} catch (Exception e) {
 			return wait.until(ExpectedConditions.elementToBeClickable(nomeUsuarioLogado)).isDisplayed();
 		}
+	}
+	
+	public void navegarParaProdutosPopulares() {
+		Actions actions = new Actions(driver);
+		actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
 	}
 }

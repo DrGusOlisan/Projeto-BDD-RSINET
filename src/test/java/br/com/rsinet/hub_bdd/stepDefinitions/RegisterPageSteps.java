@@ -1,43 +1,29 @@
 package br.com.rsinet.hub_bdd.stepDefinitions;
 
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
 import br.com.rsinet.hub_bdd.cucumber.ContextoDeTeste;
 import br.com.rsinet.hub_bdd.gerenciadores.LeitorDeConfigsManager;
-import br.com.rsinet.hub_bdd.gerenciadores.WebDriverManager;
-import br.com.rsinet.hub_bdd.pageObjectFactory.HomePage_POF;
 import br.com.rsinet.hub_bdd.pageObjectFactory.RegisterPage_POF;
 import br.com.rsinet.hub_bdd.utils.MassaDeDados;
-import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class RegisterPageSteps {
 
-	HomePage_POF homePage;
 	RegisterPage_POF registerPage;
-	WebDriverManager webDriverManager;
 	ContextoDeTeste contextoDeTeste;
 
 	public RegisterPageSteps(ContextoDeTeste contexto) {
 		contextoDeTeste = contexto;
-		contextoDeTeste.getWebDriverManager().initDriver();
-		homePage = contextoDeTeste.getPageObjectManager().getHomePage();
 		registerPage = contextoDeTeste.getPageObjectManager().getRegisterPage();
 	}
 
-	@Quando("^Usuario navega para a pagina de cadastro$")
-	public void usuario_navega_para_a_pagina_de_cadastro() {
-		homePage.clicaEmBotaoConta();
-		registerPage.clicaEmBotaoCriarConta();
-	}
-
-	@E("^Usuario preenche o formulario de cadastro$")
-	public void usuario_preenche_o_formulario_de_cadastro() throws Exception {
+	@Quando("^preenche o formulario de cadastro$")
+	public void preenche_o_formulario_de_cadastro() throws Throwable {
 		registerPage.insereUsername(MassaDeDados.usuario());
 		registerPage.insereEmail(MassaDeDados.email());
 		registerPage.insereSenha(MassaDeDados.senha());
@@ -52,20 +38,23 @@ public class RegisterPageSteps {
 		registerPage.insereCEP(MassaDeDados.cep());
 
 		registerPage.clicaNoBotaoPromocoes();
+	}
+
+	@Quando("^clica no botao de concordar com os termos$")
+	public void clica_no_botao_de_concordar_com_os_termos() throws Throwable {
 		registerPage.clicaNoBotaoTermos();
 	}
 
-	@Entao("^Usuario conclui o cadastro logado no sistema$")
-	public void usuario_conclui_o_cadastro_logado_no_sistema() throws Exception {
+	@Quando("^submete para cadastrar$")
+	public void submete_para_cadastrar() throws Throwable {
 		registerPage.clicaNoBotaoRegistrar();
-		assertTrue(homePage.nomeUsuarioLogadoApareceNaTela());
 	}
 
 	@Entao("^Mostra mensagem usuario ja existente$")
 	public void mostra_mensagem_usuario_ja_existente() throws Throwable {
 		Actions actions = new Actions(contextoDeTeste.getWebDriverManager().initDriver());
 		actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
-		assertNotEquals(LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getUrl(), contextoDeTeste.getWebDriverManager().initDriver().getCurrentUrl());
+		assertNotEquals(LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getUrl(),
+				contextoDeTeste.getWebDriverManager().initDriver().getCurrentUrl());
 	}
-
 }

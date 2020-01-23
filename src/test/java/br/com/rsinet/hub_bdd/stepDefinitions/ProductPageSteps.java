@@ -13,9 +13,6 @@ public class ProductPageSteps {
 	ProductPage_POF productPage;
 	ContextoDeTeste contextoDeTeste;
 
-	String primeiroProduto;
-	String segundoProduto;
-
 	public ProductPageSteps(ContextoDeTeste contexto) {
 		contextoDeTeste = contexto;
 		productPage = contextoDeTeste.getPageObjectManager().getProductPage();

@@ -19,9 +19,6 @@ public class RegisterPage_POF {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(how = How.XPATH, using = "/html/body/login-modal/div/div/div[3]/a[2]")
-	private WebElement botaoCriarConta;
-
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
 	private WebElement usuario;
 
@@ -66,11 +63,6 @@ public class RegisterPage_POF {
 
 	@FindBy(how = How.ID, using = "register_btnundefined")
 	private WebElement botaoRegistrar;
-
-	public void clicaEmBotaoCriarConta() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(botaoCriarConta)).sendKeys(Keys.ENTER);
-	}
 
 	public void insereUsername(String username) throws Exception {
 		usuario.sendKeys(username);
