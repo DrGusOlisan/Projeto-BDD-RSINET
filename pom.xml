@@ -93,12 +93,17 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.maven.surefire</groupId>
 			<artifactId>surefire-api</artifactId>
 			<version>2.17</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -113,5 +118,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

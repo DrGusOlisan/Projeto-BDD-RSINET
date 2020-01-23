@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegisterPage_POF {
 
-	final WebDriver driver;
+	WebDriver driver;
 
 	public RegisterPage_POF(WebDriver driver) {
 		this.driver = driver;

@@ -1,10 +1,9 @@
-package br.com.rsinet.hub_bdd.utility;
+package br.com.rsinet.hub_bdd.utils;
 
-public class Constant {
-	public static final String url = "https://www.advantageonlineshopping.com/#/";
-	public static final String Path_DadosParaTeste = "C:\\My Workspace\\BDD\\src\\main\\java\\br\\com\\rsinet\\hub_bdd\\dataProvider\\DadosParaTeste.xlsx";
+public class MassaDeDados {
+	public static final String Path_DadosParaTeste = "C:\\My Workspace\\BDD\\src\\main\\java\\br\\com\\rsinet\\hub_bdd\\dadosParaTeste\\DadosParaTeste.xlsx";
 	public static final String sheet_DadosParaTeste = "CenariosDeTeste";
-	
+
 	public static final String usuario() throws Exception {
 		return ExcelUtils.getCellData(1, 2);
 	}
@@ -55,5 +54,13 @@ public class Constant {
 
 	public static String produtoInexistente() throws Exception {
 		return ExcelUtils.getCellData(5, 3);
+	}
+
+	public static String produtoCorrespondente() throws Exception {
+		return ExcelUtils.getCellData(6, 3);
+	}
+
+	public static String produtoNaoCorrespondente() throws Exception {
+		return ExcelUtils.getCellData(7, 3);
 	}
 }

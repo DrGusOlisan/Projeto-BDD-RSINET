@@ -8,10 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage_POF {
 
-	final WebDriver driver;
-
 	public LoginPage_POF(WebDriver driver) {
-		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 

@@ -1,8 +1,9 @@
-package br.com.rsinet.hub_bdd.manager;
+package br.com.rsinet.hub_bdd.gerenciadores;
 
 import org.openqa.selenium.WebDriver;
 
 import br.com.rsinet.hub_bdd.pageObjectFactory.HomePage_POF;
+import br.com.rsinet.hub_bdd.pageObjectFactory.LoginPage_POF;
 import br.com.rsinet.hub_bdd.pageObjectFactory.ProductPage_POF;
 import br.com.rsinet.hub_bdd.pageObjectFactory.RegisterPage_POF;
 import br.com.rsinet.hub_bdd.pageObjectFactory.SearchPage_POF;
@@ -11,6 +12,7 @@ public class PageObjectManager {
 	private WebDriver driver;
 
 	private HomePage_POF homePage;
+	private LoginPage_POF loginPage;
 	private RegisterPage_POF registerPage;
 	private SearchPage_POF searchPage;
 	private ProductPage_POF productPage;
@@ -21,6 +23,10 @@ public class PageObjectManager {
 
 	public HomePage_POF getHomePage() {
 		return (homePage == null) ? homePage = new HomePage_POF(driver) : homePage;
+	}
+	
+	public LoginPage_POF getLoginPage() {
+		return (loginPage == null) ? loginPage = new LoginPage_POF(driver) : loginPage;
 	}
 
 	public RegisterPage_POF getRegisterPage() {

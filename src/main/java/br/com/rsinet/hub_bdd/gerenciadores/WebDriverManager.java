@@ -1,4 +1,4 @@
-package br.com.rsinet.hub_bdd.utility;
+package br.com.rsinet.hub_bdd.gerenciadores;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,27 +6,28 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DriverFactory {
-	private static WebDriver driver;
+public class WebDriverManager {
+	private WebDriver driver;
 	private static Logger log = Logger.getLogger("DriverFactory");
 
-	public static WebDriver driverInit() {
+	public WebDriver initDriver() {
 		if (driver == null) {
 			driver = new ChromeDriver();
 			log.info("Driver inicializado");
 
-			driver.manage().window().maximize();
+			LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().maximizaJanela(driver);
 			log.info("Navegador maximizado");
 
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(
+					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getImplicitlyWait(), TimeUnit.SECONDS);
 			log.info("Comando de espera ImplicityWait inicializado");
 		}
 		return driver;
 	}
 
-	public static WebDriver driverQuit() {
+	public WebDriver endDriver() {
 		if (driver != null) {
-			driver.quit();
+			driver.close();
 			log.info("Driver encerrado");
 		}
 		return driver = null;

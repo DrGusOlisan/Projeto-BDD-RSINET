@@ -1,6 +1,5 @@
 package br.com.rsinet.hub_bdd.pageObjectFactory;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductPage_POF {
 
-	private final WebDriver driver;
-	private static Logger log = Logger.getLogger("HomePage Actions");
+	WebDriver driver;
 
 	public ProductPage_POF(WebDriver driver) {
 		this.driver = driver;
@@ -29,8 +27,7 @@ public class ProductPage_POF {
 	private WebElement quantidadeDeProdutos;
 
 	public String getNomeDoProduto() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		return wait.until(ExpectedConditions.visibilityOf(nomeDoProduto)).getText();
+		return nomeDoProduto.getText();
 	}
 
 	public void adicionaNoCarrinho() {

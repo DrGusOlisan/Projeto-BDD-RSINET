@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsinet.hub_bdd.utility.Constant;
+import br.com.rsinet.hub_bdd.utils.MassaDeDados;
 
 public class SearchPage_POF {
 
-	private WebDriver driver;
+	WebDriver driver;
 
 	public SearchPage_POF(WebDriver driver) {
 		this.driver = driver;
@@ -32,7 +32,7 @@ public class SearchPage_POF {
 
 	public boolean validaPresencaDoProdutoExistente() throws Exception {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		return wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(Constant.produtoExistente())))
+		return wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(MassaDeDados.produtoExistente())))
 				.isDisplayed();
 	}
 }

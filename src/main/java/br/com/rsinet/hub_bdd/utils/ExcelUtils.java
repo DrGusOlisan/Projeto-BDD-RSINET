@@ -1,4 +1,4 @@
-package br.com.rsinet.hub_bdd.utility;
+package br.com.rsinet.hub_bdd.utils;
 
 import java.io.FileInputStream;
 import org.apache.poi.xssf.usermodel.XSSFCell;

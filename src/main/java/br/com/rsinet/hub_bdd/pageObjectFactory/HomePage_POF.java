@@ -10,11 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsinet.hub_bdd.utility.Constant;
+import br.com.rsinet.hub_bdd.gerenciadores.LeitorDeConfigsManager;
 
 public class HomePage_POF {
 
-	private final WebDriver driver;
+	WebDriver driver;
 	private static Logger log = Logger.getLogger("HomePage Actions");
 
 	public HomePage_POF(WebDriver driver) {
@@ -66,9 +66,9 @@ public class HomePage_POF {
 
 	@FindBy(how = How.NAME, using = "popular_item_21_name")
 	private WebElement nomeDoTerceiroProduto;
-	
+
 	public void navegarParaPaginaPrincipal() {
-		driver.get(Constant.url);
+		driver.get(LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getUrl());
 	}
 
 	public void clicaEmBotaoConta() {
@@ -143,17 +143,6 @@ public class HomePage_POF {
 			return wait.until(ExpectedConditions.elementToBeClickable(nomeUsuarioLogado)).isDisplayed();
 		} catch (Exception e) {
 			return wait.until(ExpectedConditions.elementToBeClickable(nomeUsuarioLogado)).isDisplayed();
-		}
-	}
-
-	public String nomeUsuarioLogado() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		try {
-			wait.until(ExpectedConditions.attributeToBe(nomeUsuarioLogado, "class",
-					"hi-user containMiniTitle ng-binding"));
-			return nomeUsuarioLogado.getText();
-		} catch (Exception e) {
-			return nomeUsuarioLogado.getText();
 		}
 	}
 }
