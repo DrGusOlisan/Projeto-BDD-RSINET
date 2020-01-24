@@ -1,6 +1,5 @@
 package br.com.rsinet.hub_bdd.pageObjectFactory;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +15,6 @@ import br.com.rsinet.hub_bdd.gerenciadores.LeitorDeConfigsManager;
 public class HomePage_POF {
 
 	WebDriver driver;
-	private static Logger log = Logger.getLogger("HomePage Actions");
 
 	public HomePage_POF(WebDriver driver) {
 		this.driver = driver;
@@ -118,32 +116,26 @@ public class HomePage_POF {
 
 	public void myAccount() {
 		botaoMyAccount.click();
-		log.info("Botao MyAccount clicado");
 	}
 
 	public void myOrders() {
 		botaoMyOrders.click();
-		log.info("Botao MyOrders clicado");
 	}
 
 	public void deslogar() {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(botaoDeslogar)).click();
-		log.info("Botao SignOut clicado");
 	}
 
 	public void pesquisarProduto(String produto) {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(botaoPesquisa)).click();
-		log.info("Botao pesquisar clicado");
 
 		wait.until(ExpectedConditions.elementToBeClickable(campoPesquisa)).sendKeys(produto);
-		log.info("Nome do produto inserido: " + produto);
 	}
 
 	public void executaPesquisa() {
 		campoPesquisa.sendKeys(Keys.ENTER);
-		log.info("Produto pesquisado");
 	}
 
 	public boolean nomeUsuarioLogadoApareceNaTela() throws Exception {

@@ -72,4 +72,13 @@ public class LeitorDeConfigs {
 		return true;
 	}
 
+	public String getConfigDoCaminhoDoReport() {
+		String caminhoDaConfigDoReport = properties.getProperty("caminhoDaConfigDoReport");
+		if (caminhoDaConfigDoReport != null)
+			return caminhoDaConfigDoReport;
+		else
+			throw new RuntimeException(
+					"Caminho da configuracao do report nao especificado no arquivo Configuracao.properties pela chave: caminhoDaConfigDoReport");
+	}
+
 }
