@@ -20,5 +20,11 @@ public class TestRunner {
 	public static void gerarExtentReport() {
 		Reporter.loadXMLConfig(
 				new File(LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getConfigDoCaminhoDoReport()));
+		Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
+		Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
+		Reporter.setSystemInfo("Machine", "Windows 10 " + "64 Bit");
+		Reporter.setSystemInfo("Selenium", "3.141.59");
+		Reporter.setSystemInfo("Maven", "4.0.0");
+		Reporter.setSystemInfo("Java Version", "1.8.0_231");
 	}
 }
