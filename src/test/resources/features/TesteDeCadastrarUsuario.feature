@@ -11,10 +11,10 @@ Funcionalidade: Acao de Cadastro de usuario
     E clica no botao de concordar com os termos
     E submete para cadastrar
 
-  @CenarioPositivo
+  @CenarioCadastroPositivo
   Cenario: Cadastrar novo usuario com sucesso
     Entao Usuario conclui o cadastro logado no sistema
 
-  @CenarioNegativo
+  @CenarioCadastroNegativo
   Cenario: Cadastrar usuario existente
     Entao Mostra mensagem usuario ja existente

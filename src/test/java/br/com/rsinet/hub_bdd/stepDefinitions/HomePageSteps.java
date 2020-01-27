@@ -76,13 +76,13 @@ public class HomePageSteps {
 				"Redirecionado para a pagina de compra do segundo produto: " + homePage.getNomeDoSegundoProduto());
 	}
 
-	@Quando("^Usuario insere o nome do produto existente no campo de pesquisa$")
+	@Quando("^Usuario inserir o nome do produto existente no campo de pesquisa$")
 	public void usuario_insere_o_nome_do_produto_existente_no_campo_de_pesquisa() throws Exception {
 		homePage.pesquisarProduto(MassaDeDados.produtoExistente());
 		Reporter.addStepLog("Inserido no campo de pesquisa o nome de um produto existente: " + MassaDeDados.produtoExistente());
 	}
 
-	@Quando("^Usuario insere o nome do produto inexistente no campo de pesquisa$")
+	@Quando("^Usuario inserir o nome do produto inexistente no campo de pesquisa$")
 	public void usuario_insere_o_nome_do_produto_inexistente_no_campo_de_pesquisa() throws Exception {
 		homePage.pesquisarProduto(MassaDeDados.produtoInexistente());
 		Reporter.addStepLog("Inserido no campo de pesquisa o nome de um produto inexistente: " + MassaDeDados.produtoInexistente());

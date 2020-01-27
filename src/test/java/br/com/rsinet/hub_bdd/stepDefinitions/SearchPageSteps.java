@@ -8,6 +8,7 @@ import com.cucumber.listener.Reporter;
 import br.com.rsinet.hub_bdd.cucumber.ContextoDeTeste;
 import br.com.rsinet.hub_bdd.pageObjectFactory.SearchPage_POF;
 import cucumber.api.java.pt.Entao;
+import cucumber.api.java.pt.Quando;
 
 public class SearchPageSteps {
 
@@ -17,6 +18,12 @@ public class SearchPageSteps {
 	public SearchPageSteps(ContextoDeTeste contexto) {
 		contextoDeTeste = contexto;
 		searchPage = contextoDeTeste.getPageObjectManager().getSearchPage();
+	}
+	
+	@Quando("^aba de pesquisa se encontrar fechada$")
+	public void aba_de_pesquisa_se_encontrar_fechada() {
+		searchPage.fecharPesquisa();
+		Reporter.addStepLog("Aba de pesquisa é fechada");
 	}
 
 	@Entao("^produto pesquisado aparece na pagina de pesquisa$")

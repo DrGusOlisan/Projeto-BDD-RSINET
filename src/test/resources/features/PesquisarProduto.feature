@@ -6,14 +6,15 @@ Funcionalidade: Acao de pesquisa de produto
   Contexto: 
     Dado Usuario esta na pagina principal
 
-  @CenarioPositivo
+  @CenarioPesquisaPositivo
   Cenario: Pesquisar produto existente
-    Quando Usuario insere o nome do produto existente no campo de pesquisa
+    Quando Usuario inserir o nome do produto existente no campo de pesquisa
     E executa a pesquisa
+    E aba de pesquisa se encontrar fechada
     Entao produto pesquisado aparece na pagina de pesquisa
 
-  @CenarioNegativo
+  @CenarioPesquisaNegativo
   Cenario: Pesquisar produto nao existente
-    Quando Usuario insere o nome do produto inexistente no campo de pesquisa
+    Quando Usuario inserir o nome do produto inexistente no campo de pesquisa
     E executa a pesquisa
     Entao Produto pesquisado nao aparece na pagina de pesquisa

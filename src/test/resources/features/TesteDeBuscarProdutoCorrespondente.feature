@@ -7,12 +7,12 @@ Funcionalidade: Acao de selecao de produto
     Dado Usuario esta na pagina principal
     Quando Usuario navega para os produtos populares
 
-  @CenarioPositivo
+  @CenarioBuscaPositivo
   Cenario: Validar produto correspondente ao selecionado
     E Usuario clica no primeiro produto
     Entao Produto correspondente aparece na pagina do produto
 
-  @CenarioNegativo
+  @CenarioBuscaNegativo
   Cenario: Validar produto nao correspondente ao selecionado
     E Usuario clica no segundo produto
     Entao Produto nao correspondente aparece na pagina do produto
