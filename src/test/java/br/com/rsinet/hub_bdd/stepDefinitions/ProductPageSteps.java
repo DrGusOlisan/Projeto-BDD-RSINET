@@ -8,7 +8,6 @@ import com.cucumber.listener.Reporter;
 import br.com.rsinet.hub_bdd.cucumber.ContextoDeTeste;
 import br.com.rsinet.hub_bdd.enums.Contexto;
 import br.com.rsinet.hub_bdd.pageObjectFactory.ProductPage_POF;
-import br.com.rsinet.hub_bdd.utils.MassaDeDados;
 import cucumber.api.java.pt.Entao;
 
 public class ProductPageSteps {

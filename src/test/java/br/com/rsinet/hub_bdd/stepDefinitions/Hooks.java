@@ -34,19 +34,17 @@ public class Hooks {
 	@After(order = 1)
 	public void afterCenario(Scenario scenario) {
 		String screenshotName = scenario.getName().replaceAll(" ", "_");
-		if (scenario.isFailed() || !scenario.isFailed()) {
-			try {
-				File sourcePath = ((TakesScreenshot) contextoDeTeste.getWebDriverManager().initDriver())
-						.getScreenshotAs(OutputType.FILE);
+		try {
+			File sourcePath = ((TakesScreenshot) contextoDeTeste.getWebDriverManager().initDriver())
+					.getScreenshotAs(OutputType.FILE);
 
-				File destinationPath = new File(System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/"
-						+ screenshotName + ".png");
+			File destinationPath = new File(
+					System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenshotName + ".png");
 
-				Files.copy(sourcePath, destinationPath);
+			Files.copy(sourcePath, destinationPath);
 
-				Reporter.addScreenCaptureFromPath(destinationPath.toString());
-			} catch (IOException e) {
-			}
+			Reporter.addScreenCaptureFromPath(destinationPath.toString());
+		} catch (IOException e) {
 		}
 	}
 
