@@ -32,14 +32,6 @@ public class LeitorDeConfigs {
 		}
 	}
 
-	public String getCaminhoDoDriver() {
-		String driverPath = properties.getProperty("driverPath");
-		if (driverPath != null)
-			return driverPath;
-		else
-			throw new RuntimeException("Caminho do driver nao especificado no arquivo Configuracoes.properties.");
-	}
-
 	public long getImplicitlyWait() {
 		String implicitlyWait = properties.getProperty("implicitlyWait");
 		if (implicitlyWait != null) {
@@ -79,6 +71,15 @@ public class LeitorDeConfigs {
 		else
 			throw new RuntimeException(
 					"Caminho da configuracao do report nao especificado no arquivo Configuracao.properties pela chave: caminhoDaConfigDoReport");
+	}
+	
+	public String getConfigDoCaminhoDoExcel() {
+		String caminhoDaConfigDoReport = properties.getProperty("caminhoExcel");
+		if (caminhoDaConfigDoReport != null)
+			return caminhoDaConfigDoReport;
+		else
+			throw new RuntimeException(
+					"Caminho da arquivo Excel nao especificado no arquivo Configuracao.properties pela chave: caminhoExcel");
 	}
 
 }

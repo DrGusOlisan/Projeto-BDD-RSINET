@@ -20,12 +20,6 @@ public class SearchPageSteps {
 		searchPage = contextoDeTeste.getPageObjectManager().getSearchPage();
 	}
 	
-	@Quando("^aba de pesquisa se encontrar fechada$")
-	public void aba_de_pesquisa_se_encontrar_fechada() {
-		searchPage.fecharPesquisa();
-		Reporter.addStepLog("Aba de pesquisa é fechada");
-	}
-
 	@Entao("^produto pesquisado aparece na pagina de pesquisa$")
 	public void produto_pesquisado_aparece_na_pagina_de_pesquisa() throws Exception {
 		assertTrue(searchPage.validaPresencaDoProdutoExistente());

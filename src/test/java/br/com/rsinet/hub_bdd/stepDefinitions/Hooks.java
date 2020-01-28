@@ -10,6 +10,7 @@ import com.cucumber.listener.Reporter;
 import com.google.common.io.Files;
 
 import br.com.rsinet.hub_bdd.cucumber.ContextoDeTeste;
+import br.com.rsinet.hub_bdd.gerenciadores.LeitorDeConfigsManager;
 import br.com.rsinet.hub_bdd.utils.ExcelUtils;
 import br.com.rsinet.hub_bdd.utils.MassaDeDados;
 import cucumber.api.Scenario;
@@ -28,7 +29,8 @@ public class Hooks {
 	public void startConfigs() throws Exception {
 		contextoDeTeste.getWebDriverManager().initDriver();
 
-		ExcelUtils.setExcelFile(MassaDeDados.Path_DadosParaTeste, MassaDeDados.sheet_DadosParaTeste);
+		ExcelUtils.setExcelFile(LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getConfigDoCaminhoDoExcel(),
+				MassaDeDados.sheet_DadosParaTeste);
 	}
 
 	@After(order = 1)

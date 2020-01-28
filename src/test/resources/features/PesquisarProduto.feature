@@ -10,7 +10,6 @@ Funcionalidade: Acao de pesquisa de produto
   Cenario: Pesquisar produto existente
     Quando Usuario inserir o nome do produto existente no campo de pesquisa
     E executa a pesquisa
-    E aba de pesquisa se encontrar fechada
     Entao produto pesquisado aparece na pagina de pesquisa
 
   @CenarioPesquisaNegativo

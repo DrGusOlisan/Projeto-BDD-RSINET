@@ -1,7 +1,6 @@
 package br.com.rsinet.hub_bdd.utils;
 
 public class MassaDeDados {
-	public static final String Path_DadosParaTeste = "C:\\My Workspace\\BDD\\src\\main\\java\\br\\com\\rsinet\\hub_bdd\\dadosParaTeste\\DadosParaTeste.xlsx";
 	public static final String sheet_DadosParaTeste = "CenariosDeTeste";
 
 	public static final String usuario() throws Exception {

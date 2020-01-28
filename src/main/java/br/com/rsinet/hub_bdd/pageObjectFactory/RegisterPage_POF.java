@@ -65,7 +65,6 @@ public class RegisterPage_POF {
 
 	public void insereUsername(String username) throws Exception {
 		usuario.sendKeys(username);
-		;
 	}
 
 	public void insereEmail(String emailDoUsuario) throws Exception {
